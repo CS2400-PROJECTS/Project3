@@ -155,8 +155,25 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
     * Computes the height of the "whole" tree.
    @return  The height of the "whole" tree. */
    public int getHeight_callBinaryNodeMethod()
+   
    {
-	   return 0;
+   {
+
+  return getHeight_binaryNodeMethod();
+  }
+
+  public int getHeight_binaryNodeMethod()
+  {
+  if(root==null)
+  {
+  return 0;
+
+  }
+
+   return Math.max(root.right,root.left) +1;
+
+  }
+  
    } // end getHeight_callBinaryNodeMethod
 
    /** -------------------------------------------------------------------- */
@@ -177,6 +194,19 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
    @return  The number of nodes in the subtree rooted at this node. */
    private int getNumberOfNodes(BinaryNode<T> node)
    {
+      if (node== null)
+
+    return 0;
+
+    int res = 0;
+
+    if (node.left != null && node.right != null)
+
+    res++;
+
+    res += (getNumberOfNodes(node.left) + getNumberOfNodes(node.right));
+
+    return res;
       return 0;
    } // end getNumberOfNodes
    
