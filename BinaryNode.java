@@ -43,7 +43,7 @@ class BinaryNode<T>
       return leftChild;
    } // end getLeftChild
 
-   /** Sets this node’s left child to a given node.
+   /** Sets this nodeâ€™s left child to a given node.
        @param newLeftChild  A node that will be the left child. */
    public void setLeftChild(BinaryNode<T> newLeftChild)
    {
@@ -64,7 +64,7 @@ class BinaryNode<T>
       return rightChild;
    } // end getRightChild
    
-   /** Sets this node’s right child to a given node.
+   /** Sets this nodeâ€™s right child to a given node.
     @param newRightChild  A node that will be the right child. */
    public void setRightChild(BinaryNode<T> newRightChild)
    {
@@ -129,7 +129,27 @@ class BinaryNode<T>
    @return  The height of the subtree rooted at "this" node. */
    public int getHeight_binaryNodeMethod()
    {  
-	   return 0;
+	
+	  int leftHeight = 0;
+	   
+	  int rightHeight = 0;
+	  
+	  if(this.leftChild != null)
+	  {
+		  leftHeight = this.leftChild.getHeight_binaryNodeMethod();
+
+	  }
+	  if (this.rightChild != null)
+	  {
+		  rightHeight = this.rightChild.getHeight_binaryNodeMethod();
+	  }
+	  if (leftHeight>rightHeight)
+	  {
+		  return leftHeight +1;
+	  }
+	  else {
+		  return rightHeight +1;
+	  }
    } // end getHeight
    
    /** -------------------------------------------------------------------- */
